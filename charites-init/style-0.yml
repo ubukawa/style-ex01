@@ -1,0 +1,28 @@
+version: 8
+sprite: https://ubukawa.github.io/clearmap-style2/sprite_un/sprite_S
+glyphs: https://ubukawa.github.io/clearmap-style2/font/{fontstack}/{range}.pbf
+sources:
+  ne: #change the name if needed
+    type: vector
+    attribution: NaturalEarth   #add if needed
+    minzoom: 0 #add if needed
+    maxzoom: 5 #add if needed
+    tiles:
+    - https://ubukawa.github.io/graticules-vt/zxy/{z}/{x}/{y}.pbf
+  carto: #change the name if needed
+    type: vector
+    attribution: Cartotile - Test data   #add if needed
+    minzoom: 0 #add if needed
+    maxzoom: 2 #add if needed
+    tiles:
+    - https://ubukawa.github.io/cartotile/tile/{z}/{x}/{y}.pbf
+  cme: #change the name if needed
+    type: vector
+    attribution: UN_CLEARMAP_VT(powered by esri)
+    minzoom: 0 #add if needed
+    maxzoom: 5 #add if needed
+    tiles:
+    - https://pro-ags2.dfs.un.org/arcgis/rest/services/Hosted/Clearmap_Webplain/VectorTileServer/tile/{z}/{y}/{x}.pbf
+layers:
+   - !!inc/file layers/background.yml
+   # add any layer if needed

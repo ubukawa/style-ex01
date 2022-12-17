@@ -1,0 +1,18 @@
+#filter:
+id: ls-grid30
+minzoom: 0
+maxzoom: 5
+paint:
+  line-color: '#999999'
+  line-width: 0.7
+  #line-opacity: 0.5
+  #line-dasharray:  #match cannot be used for dasharray in MapLibre
+  #  - 5
+  #  - 4
+  #  - 3
+#layout:
+#  line-cap: round
+#  line-join: round
+source: ne
+source-layer: grid30 
+type: line
