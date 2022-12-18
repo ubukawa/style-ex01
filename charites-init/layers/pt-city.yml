@@ -1,0 +1,43 @@
+filter:
+- match
+- - get
+  - _symbol
+- - 0 
+  - 1 #Alternative
+  - 2 #Territorial
+- true
+- false
+id: pt-city
+minzoom: 4
+maxzoom: 5
+layout:
+  icon-allow-overlap: true
+  icon-image:
+  - match
+  - - get
+    - _symbol
+  - 1
+  - PPL_Alternative
+  - 2
+  - PPL_Territorial
+  - PPL_National # for _symbol==0
+  icon-size: 1
+  text-allow-overlap: true
+  text-optional: true
+  text-field: '{_symbol}' #or [get, text_field] would be good.
+  text-font: 
+  - Open Sans Regular #text font should be from glyphs
+  text-size: 10
+  text-anchor: bottom
+  text-offset:
+   - 1
+   - 1
+  #text-letter-spacing: 0.1
+  #text-max-width: 50
+paint:
+  text-color: '#000000'
+  text-halo-color: '#FFFFFF'
+  text-halo-width: 0.8
+source: cme
+source-layer: Populated Places_SYMBOLS #polygon or line can be also used for labelling 
+type: symbol

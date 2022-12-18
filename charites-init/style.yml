@@ -25,5 +25,8 @@ sources:
     - https://pro-ags2.dfs.un.org/arcgis/rest/services/Hosted/Clearmap_Webplain/VectorTileServer/tile/{z}/{y}/{x}.pbf
 layers:
    - !!inc/file layers/background.yml
+   - !!inc/file layers/pg-landmass.yml
+   - !!inc/file layers/ls-coastline.yml
+   - !!inc/file layers/pt-city.yml
    - !!inc/file layers/ls-grid30.yml
    # add any layer if needed

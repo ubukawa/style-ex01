@@ -1,0 +1,8 @@
+id: pg-landmass
+minzoom: 0
+maxzoom: 5
+paint:
+  fill-color: rgb(237,237,237)
+source: carto
+source-layer: bnda 
+type: fill

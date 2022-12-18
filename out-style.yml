@@ -1,0 +1,141 @@
+{
+  "version": 8,
+  "sprite": "https://ubukawa.github.io/clearmap-style2/sprite_un/sprite_S",
+  "glyphs": "https://ubukawa.github.io/clearmap-style2/font/{fontstack}/{range}.pbf",
+  "sources": {
+    "ne": {
+      "type": "vector",
+      "attribution": "NaturalEarth",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "tiles": [
+        "https://ubukawa.github.io/graticules-vt/zxy/{z}/{x}/{y}.pbf"
+      ]
+    },
+    "carto": {
+      "type": "vector",
+      "attribution": "Cartotile - Test data",
+      "minzoom": 0,
+      "maxzoom": 2,
+      "tiles": [
+        "https://ubukawa.github.io/cartotile/tile/{z}/{x}/{y}.pbf"
+      ]
+    },
+    "cme": {
+      "type": "vector",
+      "attribution": "UN_CLEARMAP_VT(powered by esri)",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "tiles": [
+        "https://pro-ags2.dfs.un.org/arcgis/rest/services/Hosted/Clearmap_Webplain/VectorTileServer/tile/{z}/{y}/{x}.pbf"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#D6EBF5"
+      }
+    },
+    {
+      "id": "pg-landmass",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "paint": {
+        "fill-color": "rgb(237,237,237)"
+      },
+      "source": "carto",
+      "source-layer": "bnda",
+      "type": "fill"
+    },
+    {
+      "filter": [
+        "==",
+        [
+          "get",
+          "bdytyp"
+        ],
+        0
+      ],
+      "id": "ls-coastline",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "paint": {
+        "line-color": "#0000FF",
+        "line-width": 1
+      },
+      "source": "carto",
+      "source-layer": "bndl",
+      "type": "line"
+    },
+    {
+      "filter": [
+        "match",
+        [
+          "get",
+          "_symbol"
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        true,
+        false
+      ],
+      "id": "pt-city",
+      "minzoom": 4,
+      "maxzoom": 5,
+      "layout": {
+        "icon-allow-overlap": true,
+        "icon-image": [
+          "match",
+          [
+            "get",
+            "_symbol"
+          ],
+          1,
+          "PPL_Alternative",
+          2,
+          "PPL_Territorial",
+          "PPL_National"
+        ],
+        "icon-size": 1,
+        "text-allow-overlap": true,
+        "text-optional": true,
+        "text-field": "{_symbol}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 10,
+        "text-anchor": "bottom",
+        "text-offset": [
+          1,
+          1
+        ]
+      },
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 0.8
+      },
+      "source": "cme",
+      "source-layer": "Populated Places_SYMBOLS",
+      "type": "symbol"
+    },
+    {
+      "id": "ls-grid30",
+      "minzoom": 0,
+      "maxzoom": 5,
+      "paint": {
+        "line-color": "#999999",
+        "line-width": 0.7
+      },
+      "source": "ne",
+      "source-layer": "grid30",
+      "type": "line"
+    }
+  ]
+}
